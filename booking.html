@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BookMate – Book Appointment</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
+    <script>
+        function confirmBooking(e) {
+            e.preventDefault();
+            document.getElementById("confirmation").classList.remove("hidden");
+            document.getElementById("form").reset();
+        }
+    </script>
+</head>
+
+<body class="bg-gray-50 text-gray-800">
+
+    <!-- Header -->
+    <header class="p-6 bg-white shadow flex justify-between items-center">
+        <h1 class="text-xl font-bold text-blue-600">BookMate</h1>
+        <a href="index.html" class="text-blue-600 hover:underline">← Back to Home</a>
+    </header>
+
+    <!-- Booking Form -->
+    <main class="max-w-xl mx-auto my-12 p-6 bg-white rounded shadow">
+        <h2 class="text-2xl font-semibold mb-6 text-center">Book an Appointment</h2>
+        <form action="https://formspree.io/f/mvgawbao"
+        method="POST" id="form" onsubmit="confirmBooking(event)" class="space-y-4">
+
+            <div>
+                <label for="name" class="block text-sm font-medium">Full Name</label>
+                <input type="text" id="name" name="name" required class="w-full mt-1 p-2 border rounded" />
+            </div>
+
+            <div>
+                <label for="email" class="block text-sm font-medium">Email Address</label>
+                <input type="email" id="email" name="email" required class="w-full mt-1 p-2 border rounded" />
+            </div>
+
+            <div>
+                <label for="service" class="block text-sm font-medium">Service</label>
+                <select id="service" name="service" required class="w-full mt-1 p-2 border rounded">
+                    <option value="">Select a service</option>
+                    <option>Consultation</option>
+                    <option>Haircut</option>
+                    <option>Massage</option>
+                    <option>Custom</option>
+                </select>
+            </div>
+
+            <div>
+                <label for="date" class="block text-sm font-medium">Preferred Date</label>
+                <input type="date" id="date" name="date" required class="w-full mt-1 p-2 border rounded" />
+            </div>
+
+            <div>
+                <label for="time" class="block text-sm font-medium">Preferred Time</label>
+                <input type="time" id="time" name="time" required class="w-full mt-1 p-2 border rounded" />
+            </div>
+
+            <button type="submit" class="w-full bg-blue-600 text-white py-2 rounded hover:bg-blue-700 transition">
+                Confirm Booking
+            </button>
+        </form>
+
+        <!-- Confirmation Message -->
+        <div id="confirmation" class="hidden mt-6 bg-green-100 text-green-800 p-4 rounded text-center">
+            ✅ Appointment booked successfully! We'll be in touch soon.
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="text-center py-6 text-sm text-gray-500">
+        © 2025 BookMate | Built by Billy Ng’uono
+    </footer>
+
+</body>
+
+</html>
